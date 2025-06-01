@@ -1,0 +1,362 @@
+
+
+/* mise en page */
+html, body {
+    overflow: scroll;
+    overflow: visible; /* Permet à tout contenu de rester visible */
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Occupe toute la hauteur de la page */
+    width: 100%;  /* Occupe toute la largeur de la page */
+}
+
+/* Applique un fond avec une image et un dégradé violet */
+body {
+    background-color: lightgrey;
+    display: flex;  /* Utilisation de Flexbox pour centrer le contenu */
+
+}
+
+
+
+/* PREMIERE PAGE */
+
+/* Aligner le contenu au centre seulement pour cette page */
+#page-center {
+    display: flex;
+    justify-content: center; /* Aligne horizontalement au centre */
+    align-items: center; /* Aligne verticalement au centre */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+    margin: 0; /* Enlève les marges par défaut */
+    background-image: url(image/fond1.png);
+}
+
+/* Import des typographies */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+
+/* Exemple pour un paragraphe */
+p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #444;
+    line-height: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Règlages du h1 */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: ghostwhite;
+ } 
+
+/* Texte sous forme de bloc centré */
+.container {
+    text-align: center;
+}
+
+/* Garder le style du h1 (lien) */
+h1 a {
+    text-decoration: none;    /* enlever soulignement */
+    color: inherit;           /* garder la couleur du h1 */
+}
+
+/* Animation après avoir cliquer sur carte */
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Carte qui ce déplace */
+.card {
+    position: absolute;
+    margin: 20px;
+    display: inline-block;
+    animation: vibration 0.3s ease infinite;
+    position: absolute; /* Placement devant les 6 lignes suivantes le permettent*/
+    z-index: 2; 
+    transition: all 1s ease; /* Transition fluide */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 30%;
+    left: 25%;
+    cursor: pointer;
+}
+
+/* le style du conteneur image de la carte  */
+.card-image {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s ease;
+}
+
+/* les vibrations appliqués à la carte */
+@keyframes vibration {
+    0% {
+        transform: translateX(0) ;
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+
+/* FIN PREMIERE PAGE */
+
+
+/* DEUXIEME PAGE */
+
+/* Propriété su fond pour cette page */
+#background {
+    display: flex;
+    justify-content: center; /* Aligne horizontalement au centre */
+    align-items: center; /* Aligne verticalement au centre */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+    margin: 0; /* Enlève les marges par défaut */
+    background-image: url('image/fond.png');
+    background-size: cover; /* L'image couvre toute la fenêtre sans répétition */
+    background-position: center center; /* L'image est centrée */
+    background-attachment: fixed; /* L'image de fond reste fixe lors du défilement */
+    display: flex;  /* Utilisation de Flexbox pour centrer le contenu */
+
+}
+
+/* Définir propriété conteneur */
+.gif-container {
+    margin: 20px;
+    text-align: center;
+}
+
+.gif {
+    width: 250px; /* Ajuste la taille de l'image selon tes besoins */
+    height: auto;
+}
+
+/* FIN DEUXIEME PAGE */
+
+
+/* TROISIEME PAGE */
+
+/* Aligner le contenu au centre */
+#page {
+    position: relative;
+    min-height: 700vh; /* Hauteur augmentée pour permettre le scroll */
+    background-image: url(image/fond2.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15vh; /* Décalage vers le bas */
+    width: 100%;
+}
+
+/* Texte au milieu */
+.strange-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 6rem;
+    color: ghostwhite;
+    position: absolute;
+    z-index: 3;
+    animation: floatText 5s ease-in-out infinite;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes floatText {
+    0% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+}
+
+
+/* Texte haut */
+.top-text {
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: topTextMove 8s ease-in-out infinite;
+}
+
+@keyframes topTextMove {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0.5;
+    }
+}
+
+/* Texte bas */
+.bottom-text {
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bottomTextMove 8s ease-in-out infinite;
+}
+
+@keyframes bottomTextMove {
+    0% {
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+}
+
+/* Texte cliquable */
+.clickable-text {
+    font-size: 5rem;
+    color: ghostwhite;
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    animation: giantTextEffect 6s ease-in-out infinite;
+}
+
+/* Texte géant */
+.giant-text {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+@keyframes giantTextEffect {
+    0%, 100% {
+        opacity: 0.8;
+        color: ghostwhite;
+    }
+    50% {
+        opacity: 1;
+        color: lightpink;
+    }
+}
+
+/* Illustration*/
+.random-illustration {
+    position: absolute;
+    z-index: 1;
+    width: 40vw;
+    height: auto;
+    animation: randomIllustrationEffect 10s ease-in-out infinite;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes randomIllustrationEffect {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    50% {
+        transform: rotate(90deg) translateX(50px);
+    }
+    100% {
+        transform: rotate(180deg) translateX(0);
+    }
+}
+
+/* ESpacement entre les textes et illustrations */
+.strange-text:nth-of-type(1) {
+    top: 20%;
+}
+
+.strange-text:nth-of-type(2) {
+    top: 15%;
+}
+
+.strange-text:nth-of-type(3) {
+    top: 25%;
+}
+
+.strange-text:nth-of-type(4) {
+    top: 35%;
+}
+
+/* Illustrations supplémentaires espacées */
+.random-illustration:nth-of-type(1) {
+    top: 5%;
+    left: 10%;
+    width: 700px;   /* Fixe la largeur */
+    height: auto;   /* Laisse la hauteur s'ajuster automatiquement */
+}
+
+.random-illustration:nth-of-type(2) {
+    top: 24%;
+    left: 30%;
+    width: 700px;   /* Fixe la largeur */
+    height: auto;   /* Laisse la hauteur s'ajuster automatiquement */
+}
+
+.random-illustration:nth-of-type(3) {
+    top: 58%;
+    left: 5%;
+    width: 700px;   /* Fixe la largeur */
+    height: auto;   /* Laisse la hauteur s'ajuster automatiquement */
+}
+
+.random-illustration:nth-of-type(4) {
+    top: 80%;
+    left: 15%;
+    width: 1000px;   /* Fixe la largeur */
+    height: auto;   /* Laisse la hauteur s'ajuster automatiquement */
+}
+
+
+
+
+/* FIN TROISIEME PAGE */
